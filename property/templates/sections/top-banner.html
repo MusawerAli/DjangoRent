@@ -1,0 +1,191 @@
+	{% load static %}
+    <div class="image-cover hero_banner" style="background:url({% static 'assets/img/banner-10.jpg' %}) no-repeat;" data-overlay="6">
+				<div class="container">
+					
+					<h1 class="big-header-capt mb-0">Find Your Next Dream</h1>
+					<p class="text-center mb-5">Find new & featured property located in your local city.</p>
+					<!-- Type -->
+					<div class="property_search_filter">
+						<label class="active"><input class="first-tab" name="tab" checked="checked" type="radio">For Buy</label>
+						<label><input name="tab" type="radio">For Sale</label>
+						<label><input name="tab" type="radio">For Rent</label>
+						<div class="property_search_filter-arrow"></div>
+					</div>
+					<div class="full_search_box nexio_search lightanic_search hero_search-radius">
+						<div class="search_hero_wrapping">
+							
+							<div class="row">
+							
+								<div class="col-lg-3 col-md-3 col-sm-12 small-padd">
+									<div class="form-group">
+										<div class="input-with-icon">
+											<input type="text" class="form-control" placeholder="Neighborhood">
+											<i class="ti-search"></i>
+										</div>
+									</div>
+								</div>
+	
+								
+								<div class="col-lg-3 col-md-3 col-sm-12 small-padd">
+									<div class="form-group">
+										<div class="input-with-icon">
+											<select id="ptypes" class="form-control">
+												<option value="">&nbsp;</option>
+												<option value="1">Any Type</option>
+												<option value="2">Apartment</option>
+												<option value="3">Villas</option>
+												<option value="4">Commercial</option>
+												<option value="5">Offices</option>
+												<option value="6">Garage</option>
+											</select>
+											<i class="ti-briefcase"></i>
+										</div>
+									</div>
+								</div>
+
+								
+								<div class="col-lg-3 col-md-3 col-sm-12 small-padd">
+									<div class="form-group">
+										<div class="input-with-icon">
+											<input type="text" class="form-control" placeholder="Location">
+											<i class="ti-location-pin"></i>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-1 col-md-1 col-sm-12 small-padd">
+									<div class="form-group">
+										<a role="button" class="collapsed ad-search" data-toggle="collapse" href="#advance-search" aria-expanded="false" aria-controls="advance-search">More<i class="ml-1 ti-more"></i></a>
+									</div>
+								</div>
+								
+								<div class="col-lg-2 col-md-2 col-sm-12 small-padd">
+									<div class="form-group">
+										<a href="#" class="btn search-btn">Search</a>
+									</div>
+								</div>
+								
+							</div>
+							<div class="collapse" id="advance-search" aria-expanded="false" role="banner">
+							
+								<!-- row -->
+								<div class="row">
+								
+									<div class="col-lg-4 col-md-4 col-sm-12">
+										<div class="form-group">
+											<div class="input-with-icon">
+												<select id="town" class="form-control">
+													<option value="">&nbsp;</option>
+													<option value="1">Any Town</option>
+													<option value="2">Toronto</option>
+													<option value="3">Montreal</option>
+													<option value="4">Alberta</option>
+													<option value="5">Ontario</option>
+													<option value="6">Ottawa</option>
+												</select>
+												<i class="ti-location-pin"></i>
+											</div>
+										</div>
+									</div>
+									
+									<div class="col-lg-4 col-md-4 col-sm-12">
+										<div class="form-group">
+											<div class="input-with-icon">
+												<select id="bedrooms" class="form-control">
+													<option value="">&nbsp;</option>
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
+												</select>
+												<i class="fas fa-bed"></i>
+											</div>
+										</div>
+									</div>
+									
+									<div class="col-lg-4 col-md-4 col-sm-12">
+										<div class="form-group">
+											<div class="input-with-icon">
+												<select id="bathrooms" class="form-control">
+													<option value="">&nbsp;</option>
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
+												</select>
+												<i class="fas fa-bath"></i>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+								<!-- /row -->
+								
+								<!-- row -->
+								<div class="row">
+								
+									<div class="col-lg-12 col-md-12 col-sm-12 mt-5">
+										<h4 class="text-dark">Amenities & Features</h4>
+										<ul class="no-ul-list third-row">
+											<li>
+												<input id="a-1" class="checkbox-custom" name="a-1" type="checkbox">
+												<label for="a-1" class="checkbox-custom-label">Air Condition</label>
+											</li>
+											<li>
+												<input id="a-2" class="checkbox-custom" name="a-2" type="checkbox">
+												<label for="a-2" class="checkbox-custom-label">Bedding</label>
+											</li>
+											<li>
+												<input id="a-3" class="checkbox-custom" name="a-3" type="checkbox">
+												<label for="a-3" class="checkbox-custom-label">Heating</label>
+											</li>
+											<li>
+												<input id="a-4" class="checkbox-custom" name="a-4" type="checkbox">
+												<label for="a-4" class="checkbox-custom-label">Internet</label>
+											</li>
+											<li>
+												<input id="a-5" class="checkbox-custom" name="a-5" type="checkbox">
+												<label for="a-5" class="checkbox-custom-label">Microwave</label>
+											</li>
+											<li>
+												<input id="a-6" class="checkbox-custom" name="a-6" type="checkbox">
+												<label for="a-6" class="checkbox-custom-label">Smoking Allow</label>
+											</li>
+											<li>
+												<input id="a-7" class="checkbox-custom" name="a-7" type="checkbox">
+												<label for="a-7" class="checkbox-custom-label">Terrace</label>
+											</li>
+											<li>
+												<input id="a-8" class="checkbox-custom" name="a-8" type="checkbox">
+												<label for="a-8" class="checkbox-custom-label">Balcony</label>
+											</li>
+											<li>
+												<input id="a-9" class="checkbox-custom" name="a-9" type="checkbox">
+												<label for="a-9" class="checkbox-custom-label">Icon</label>
+											</li>
+											<li>
+												<input id="a-10" class="checkbox-custom" name="a-10" type="checkbox">
+												<label for="a-10" class="checkbox-custom-label">Wi-Fi</label>
+											</li>
+											<li>
+												<input id="a-11" class="checkbox-custom" name="a-11" type="checkbox">
+												<label for="a-11" class="checkbox-custom-label">Beach</label>
+											</li>
+											<li>
+												<input id="a-12" class="checkbox-custom" name="a-12" type="checkbox">
+												<label for="a-12" class="checkbox-custom-label">Parking</label>
+											</li>
+										</ul>
+									</div>
+									
+								</div>
+								<!-- /row -->
+								
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
