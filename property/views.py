@@ -7,12 +7,14 @@ from datetime import datetime
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_decode,urlsafe_base64_encode
-from .models import MemberDetail
+from django.contrib.auth.models import User
+# from .models import MemberDetail
 from django.utils.encoding import force_bytes,force_text,DjangoUnicodeDecodeError
 # from django.contrib.auth.tokens import PasswordResetTokenGenerator as token_check
 from .utils import generate_token
 from django.core.mail import EmailMessage
 from django.conf import settings
+from django.contrib.auth import authenticate,login,logout 
 class RegistrationView(View):
     def get(self,request):
         return render(request,'user/register.html')
@@ -43,26 +45,34 @@ class RegistrationView(View):
             context['has_error']=True
 
 
-        if MemberDetail.objects.filter(user_name=username):
+        if User.objects.filter(username=username):
             messages.add_message(request,messages.ERROR,'UserName Already Taken')
             context['has_error']=True
 
-        if MemberDetail.objects.filter(email=email):
+        if User.objects.filter(email=email):
             messages.add_message(request,messages.ERROR,'This email Already Taken')
             context['has_error']=True  
 
         if context['has_error']:
             return render(request,'user/register.html',context)
         
-        user = MemberDetail(user_name=username,email=email)
+        # user = MemberDetail(user_name=username,email=email)
+        # user = User(user_name=username,email=email)
         # user.user_name=username
+        # user.first_name=first_name
+        # user.last_name=last_name
+        # user.email=email
+        # user.contact=contact
+        # user.password = password
+        # userta.created_at = datetime.now()
+        # user.ip_address = '192.168.0.1'
+        # user.is_active = False
+        # user.save()
+
+        user = User.objects.create_user(username=username,email=email)
+        user.set_password(password)
         user.first_name=first_name
         user.last_name=last_name
-        # user.email=email
-        user.contact=contact
-        user.set_password(password)
-        # userta.created_at = datetime.now()
-        user.ip_address = '192.168.0.1'
         user.is_active = False
         user.save()
 
@@ -103,7 +113,7 @@ class ActivationAccountView(View):
     def get(self,request,uidb64,token):
         try:
             uid = force_text(urlsafe_base64_decode(uidb64))
-            user = MemberDetail.objects.get(pk=uid)
+            user = User.objects.get(pk=uid)
         except Exception as identifier:
             user = None
 
@@ -115,6 +125,33 @@ class ActivationAccountView(View):
 
         return HttpResponse('some thing went wring')
 
+
+#LoginView
+
+class LoginView(View):
+    
+     def post(self,request):
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        context = {
+        'data':request.POST,
+        'has_error':False
+        }
+
+        if username=='':
+            messages.add_message(request,messages.ERROR,'username is required')
+            context['has_error']=True
+        if password=='':
+            messages.add_message(request,messages.ERROR,'password is required')
+            context['has_error']=True
+
+        user = authenticate(request,username=username,password=password)
+
+        if not user and not context['has_error']:
+            return HttpResponse('INvlaid')
+            messages.add_message(request,messages.ERROR,'Invalid Login')
+        return HttpResponse('True')
 
 # Create your views here.
 def index(request):

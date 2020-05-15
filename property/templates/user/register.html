@@ -34,13 +34,7 @@
 						<div class="col-lg-7 col-md-8">
 							<div class="modal-body">
 								<h4 class="modal-header-title">Create An Account</h4>
-								{% if messages %}
-									{% for message in messages %}
-										<div class="alert alert-{{message.tag}}">
-										{{message}}
-										</div>
-									{% endfor %}
-								{% endif %}
+								{% include 'sections/_flash_messages.html' %}
 								<div class="login-form">
 								
 									<form method="post" action="{% url 'register' %}">

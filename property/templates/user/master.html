@@ -65,12 +65,12 @@
 						<div class="modal-body">
 							<h4 class="modal-header-title">Log In</h4>
 							<div class="login-form">
-								<form>
-								
+								<form action="{% url 'login' %}" method="post">
+								{% csrf_token %}
 									<div class="form-group">
-										<label>User Name</label>
+										<label>UserName</label>
 										<div class="input-with-icon">
-											<input type="text" class="form-control" placeholder="Username">
+											<input type="text" class="form-control" name="username" placeholder="Username">
 											<i class="ti-user"></i>
 										</div>
 									</div>
@@ -78,7 +78,7 @@
 									<div class="form-group">
 										<label>Password</label>
 										<div class="input-with-icon">
-											<input type="password" class="form-control" placeholder="*******">
+											<input type="password" class="form-control" name="password" placeholder="*******">
 											<i class="ti-unlock"></i>
 										</div>
 									</div>
